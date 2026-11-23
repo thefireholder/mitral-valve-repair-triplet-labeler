@@ -1,0 +1,18 @@
+{
+  "input": [
+    544,
+    960
+  ],
+  "names": {
+    "0": "Aorta",
+    "1": "Diaphragm",
+    "2": "Lung",
+    "3": "Pericardium",
+    "4": "Port",
+    "5": "Right atrium",
+    "6": "Robot-arm",
+    "7": "Suture"
+  },
+  "nm": 32,
+  "source": "code/segmentation/result/yolov8m_seg/weights/best.pt"
+}

@@ -1,0 +1,26 @@
+{
+  "tool": [
+    "forceps",
+    "long tip forceps",
+    "scissors",
+    "needle driver",
+    "robotic retractor",
+    "electrocautery"
+  ],
+  "action": [
+    "grasp",
+    "retract",
+    "suture",
+    "dissect",
+    "mobilize",
+    "clamp"
+  ],
+  "target": [
+    "aorta",
+    "pericardium",
+    "right atrium",
+    "lung",
+    "diaphragm",
+    "coronary cusp"
+  ]
+}
