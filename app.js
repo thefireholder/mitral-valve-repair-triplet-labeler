@@ -293,12 +293,18 @@ async function init() {
   if (Backend.cfg) { $('#sheetUrl').value = Backend.cfg.url; $('#sheetSecret').value = Backend.cfg.secret; }
   else if (CONFIG.secret) $('#sheetSecret').value = CONFIG.secret;
 
-  // backend (a complete config.js connects to the sheet automatically)
-  const mode = CONFIG.sheetUrl && CONFIG.secret ? 'sheet' : store.get('tl.mode', null);
+  // backend: a complete config.js connects to the sheet automatically and
+  // reduces the "Google Sheet" setup step to a status line
+  const embedded = !!(CONFIG.sheetUrl && CONFIG.secret);
+  const mode = embedded ? 'sheet' : store.get('tl.mode', null);
+  setSheetEmbedded(embedded);
   if (mode === 'sheet' && Backend.cfg) {
     $('#sheetStatus').textContent = 'connecting…';
     try { onConnected(await Backend.connect(Backend.cfg.url, Backend.cfg.secret)); }
-    catch (e) { $('#sheetStatus').innerHTML = `<span class="err-text">${esc(e.message)}</span>`; }
+    catch (e) {
+      $('#sheetStatus').innerHTML = `<span class="err-text">${esc(e.message)}</span>`;
+      setSheetEmbedded(false); // show the fields so the connection can be fixed or retried
+    }
   } else if (mode === 'local') { Backend.useLocal(); onLocal(); }
 
   // folder
@@ -317,6 +323,11 @@ async function init() {
     }
   }
   if (!maybeStart()) openSetup();
+}
+function setSheetEmbedded(on) {
+  $('#sheetSection').classList.toggle('embedded', on);
+  $('#stepFolder').textContent = on ? '1' : '2';
+  $('#stepModel').textContent = on ? '2' : '3';
 }
 function onConnected(j) {
   S.vocab = j.vocab;

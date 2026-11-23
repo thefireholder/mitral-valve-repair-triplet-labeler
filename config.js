@@ -4,6 +4,6 @@
    - secret:   must match SECRET in apps-script/Code.gs
    Leave sheetUrl empty to type the URL in Setup instead. */
 window.TRIPLET_CONFIG = {
-  sheetUrl: '',
+  sheetUrl: 'https://script.google.com/macros/s/AKfycbzM3_cvDmYb4k03dZ864wAMM8pksqK3_nPGzSI2Mnn2dh7bEDCmjnMGZndymLTqJSx90Q/exec',
   secret: 'p983n4fppy3ngwnhlieghc3p48u9cmyw348ywpm34tw34h',
 };

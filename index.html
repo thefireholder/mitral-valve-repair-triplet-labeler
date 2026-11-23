@@ -148,7 +148,7 @@
 <div id="setup" class="modal hidden">
   <div class="modal-box setup-box">
     <h3>Setup</h3>
-    <section>
+    <section id="sheetSection">
       <h4><span class="step">1</span> Google Sheet</h4>
       <p class="muted small">Paste the Web app URL and the secret from the Apps Script deployment (see the README).
         They are kept only in this browser.</p>
@@ -161,7 +161,7 @@
       </div>
     </section>
     <section>
-      <h4><span class="step">2</span> Video folder</h4>
+      <h4><span class="step" id="stepFolder">2</span> Video folder</h4>
       <p class="muted small">Choose the folder that contains the patient folders (for example <span class="mono">full_raw_data</span>).
         Always choose the same folder, because each video is identified by its path inside it.
         Videos play from this computer and are never uploaded.</p>
@@ -173,7 +173,7 @@
       <input id="folderInput" type="file" webkitdirectory multiple class="hidden">
     </section>
     <section>
-      <h4><span class="step">3</span> YOLO model</h4>
+      <h4><span class="step" id="stepModel">3</span> YOLO model</h4>
       <div id="modelStatus" class="small muted">loading…</div>
     </section>
     <div class="row end"><button id="setupDone" class="primary" disabled>Start labeling</button></div>
